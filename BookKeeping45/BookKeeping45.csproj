@@ -151,7 +151,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Features\Home\HomeController.cs" />
-    <Compile Include="Features\Inventory2\Inventory2Controller.cs" />
     <Compile Include="Features\Inventory\InventoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,21 +184,17 @@
     <Content Include="Features\_ViewStart.cshtml" />
     <Content Include="Features\Shared\Error.cshtml" />
     <Content Include="Features\Shared\_Layout.cshtml" />
-    <Content Include="Features\Home\About.cshtml" />
-    <Content Include="Features\Home\Contact.cshtml" />
     <Content Include="Features\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Features\Inventory2\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Features\Inventory2\All.cshtml" />
-    <Content Include="Features\Inventory2\View.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\BookKeeping.service.js" />
   </ItemGroup>

@@ -12,7 +12,6 @@ namespace BookKeeping45.Queries.Handlers
 {
     public class InventoryHandler :
         IRequestHandler<GetCompleteInventoryQuery, IReadOnlyList<LegoSet>>
-        //,   IRequestHandler<GetInventoryOnSale, Unit>
     {
 
         private readonly IQueryContext _queryContext;
@@ -27,10 +26,12 @@ namespace BookKeeping45.Queries.Handlers
             var result = _queryContext.Set<Domain.Model.LegoSet>()
                 .Select(x => new LegoSet
                 {
+                    Id = x.Id,
                     Name = x.Name,
                     Number = x.Number,
                     IsSold = x.IsSold,
-                    SellPrice = x.SellPrice
+                    SellPrice = x.SellPrice,
+                    PurchasePrice = x.PurchasePrice
                 }).ToList();
 
             return result;

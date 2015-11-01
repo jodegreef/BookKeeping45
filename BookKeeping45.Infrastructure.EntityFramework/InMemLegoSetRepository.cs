@@ -22,9 +22,9 @@ namespace BookKeeping45.Infrastructure.EntityFramework
             _list.Remove(legoSet);
         }
 
-        public LegoSet GetByNumber(int number)
+        public LegoSet GetById(Guid id)
         {
-            return _list.FirstOrDefault(x => x.Number == number);
+            return _list.FirstOrDefault(x => x.Id == id);
         }
     }
 }

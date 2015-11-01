@@ -8,7 +8,7 @@ namespace BookKeeping45.Domain.Model
 {
     public class LegoSet
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public virtual int Number { get; private set; }
         public virtual string Name { get; private set; }
         public decimal PurchasePrice { get; private set; }
@@ -19,21 +19,34 @@ namespace BookKeeping45.Domain.Model
         {
         }
 
-        public LegoSet(int number, string name, decimal purchasePrice)
+        public LegoSet(Guid id, int number, string name, decimal purchasePrice)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             Number = number;
             Name = name;
             PurchasePrice = purchasePrice;
         }
 
 
-        public void MarkAsSold()
+        public LegoSet(int number, string name, decimal purchasePrice) : this(Guid.NewGuid(), number, name, purchasePrice)
+        {
+        }
+
+
+        public void MarkAsSold(decimal sellPrice)
         {
             if (IsSold)
                 throw new ApplicationException(string.Format("Set {0} is already sold", Number));
 
             IsSold = true;
+            SellPrice = SellPrice;
+        }
+
+        public void Update(int number, string name, decimal purchasePrice)
+        {
+            Number = number;
+            Name = name;
+            PurchasePrice = purchasePrice;
         }
     }
 }

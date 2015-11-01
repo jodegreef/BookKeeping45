@@ -8,9 +8,11 @@ namespace BookKeeping45.QueryModel
 {
     public class LegoSet
     {
+        public Guid Id { get; set; }
         public int Number { get; set; }
         public string Name { get; set; }
         public bool IsSold { get; set; }
+        public decimal PurchasePrice { get; set; }
         public decimal? SellPrice { get; set; }
     }
 }

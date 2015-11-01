@@ -10,7 +10,7 @@ namespace BookKeeping45.Domain.Repositories
 {
     public interface ILegoSetRepository
     {
-        LegoSet GetByNumber(int id);
+        LegoSet GetById(Guid id);
         void Add(LegoSet legoSet);
         void Delete(LegoSet legoSet);
     }

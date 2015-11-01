@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetInventoryOnSale.cs" />
     <Compile Include="GetCompleteInventoryQuery.cs" />
     <Compile Include="Handlers\InventoryHandler.cs" />
     <Compile Include="Infrastructure\ConnectionProvider.cs" />

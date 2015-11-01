@@ -13,6 +13,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using BookKeeping45.Features.Inventory;
 using Autofac;
+using Newtonsoft.Json.Serialization;
 
 namespace BookKeeping45
 {
@@ -40,6 +41,9 @@ namespace BookKeeping45
             var config = GlobalConfiguration.Configuration;
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
+
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
         }
     }

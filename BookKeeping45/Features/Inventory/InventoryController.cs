@@ -1,4 +1,5 @@
-﻿using BookKeeping45.Infrastructure.Mediator;
+﻿using BookKeeping45.Application.Commands;
+using BookKeeping45.Infrastructure.Mediator;
 using BookKeeping45.Queries;
 using System;
 using System.Collections.Generic;
@@ -26,21 +27,27 @@ namespace BookKeeping45.Features.Inventory
             return inventory;
         }
 
-        // GET: api/Inventory/5
-        public string Get(int id)
+
+
+        public void Put(Guid id, [FromBody] QueryModel.LegoSet value)
         {
-            return "value";
+            var result = _mediator.Send(new SaveLegoSetCommand(id, value.Number, value.Name, value.PurchasePrice));
         }
 
-        // POST: api/Inventory
-        public void Post([FromBody]string value)
+
+        [Route("api/inventory/sold/{id}")]
+        public void PutSold(Guid id, [FromBody] QueryModel.LegoSet value)
         {
+            var result = _mediator.Send(new MarkAsSoldCommand(id, value.SellPrice.GetValueOrDefault()));
         }
 
-        // PUT: api/Inventory/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+
+        // FYI: this is how you would do a POST instead of a PUT
+        //[Route("api/inventory/sold")]
+        //public void Post(QueryModel.LegoSet legoSet)
+        //{
+        //}
+
 
         // DELETE: api/Inventory/5
         public void Delete(int id)

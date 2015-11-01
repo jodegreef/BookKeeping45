@@ -11,12 +11,12 @@ namespace BookKeeping45.Application.Commands
 {
     public class MarkAsSoldCommand : Request<Unit>
     {
-        public int Number { get; set; }
+        public Guid Id { get; set; }
         public decimal SellPrice { get; set; }
 
-        public MarkAsSoldCommand(int number, decimal sellPrice)
+        public MarkAsSoldCommand(Guid id, decimal sellPrice)
         {
-            Number = number;
+            Id = id;
             SellPrice = sellPrice;
         }
     }

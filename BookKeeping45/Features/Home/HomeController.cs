@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookKeeping45.Infrastructure.Mediator;
+using BookKeeping45.Queries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +10,19 @@ namespace BookKeeping45.Features.Home
 {
     public class HomeController : Controller
     {
+        public IMediator _mediator;
+
+        public HomeController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        //HACK: can we do this with routing instead of an explicit action method???
         public ActionResult Index()
         {
-            return View();
-        }
+            var inventory = _mediator.Send(new GetCompleteInventoryQuery());
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(inventory);
         }
     }
 }

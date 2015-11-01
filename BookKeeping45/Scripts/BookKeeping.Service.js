@@ -12,6 +12,8 @@
 
         var service = {
             getInventory: getInventory,
+            markAsSold: markAsSold,
+            save: save,
             ready: ready
         };
 
@@ -21,14 +23,33 @@
             return $http.get('/api/inventory')
                 .then(getInventoryComplete)
                 .catch(function(message) {
-                    //exception.catcher('XHR Failed for getInventory')(message);
                     console.log('XHR failed for getInventory: ' + message)
                     $location.url('/');
                 });
 
-            function getInventoryComplete(data, status, headers, config) {
-            	alert(data);
-                return data.data[0].data.results;
+            function getInventoryComplete(response, status, headers, config) {
+                return response.data;
+            }
+        }
+
+        function markAsSold(id, sellPrice) {
+            //fyi: this is how you do a post instead
+            // return $http.post('/api/inventory/sold', {id:id, sellPrice: sellPrice})
+            return $http.put('/api/inventory/sold/' + id, { sellPrice: sellPrice });
+        }
+
+
+        function save(legoSet) {
+            return $http.put('/api/inventory/' + legoSet.id, legoSet)
+                .then(addComplete)
+                .catch(function (message) {
+                    //exception.catcher('XHR Failed for getInventory')(message);
+                    console.log('XHR failed for put inventory: ' + message)
+                    $location.url('/');
+                });
+
+            function addComplete(response, status, headers, config) {
+                return response.data;
             }
         }
 
