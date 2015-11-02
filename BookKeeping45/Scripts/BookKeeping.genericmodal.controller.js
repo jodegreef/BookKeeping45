@@ -4,7 +4,7 @@
 
     angular
         .module('app')
-        .controller('bookkeepingMarkAsSoldController', function ($scope, $uibModalInstance, legoSet) {
+        .controller('bookkeepingGenericModalController', function ($scope, $uibModalInstance, legoSet) {
             var vm = this;
             $scope.selected = legoSet;
 

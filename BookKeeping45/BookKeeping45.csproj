@@ -173,9 +173,7 @@
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\BookKeeping.app.js" />
-    <Content Include="Scripts\BookKeeping.add.controller.js" />
-    <Content Include="Scripts\BookKeeping.markassold.controller.js" />
-    <Content Include="Scripts\BookKeeping.edit.controller.js" />
+    <Content Include="Scripts\BookKeeping.genericmodal.controller.js" />
     <Content Include="Scripts\BookKeeping.controller.js" />
     <Content Include="Scripts\BookKeeping.legosetdetail.directive.js" />
     <Content Include="Scripts\BookKeeping.model.js" />

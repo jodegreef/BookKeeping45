@@ -21,9 +21,7 @@ namespace BookKeeping45
                 "~/Scripts/bookkeeping.app.js"
                 , "~/Scripts/bookkeeping.service.js"
                 , "~/Scripts/bookkeeping.controller.js"
-                , "~/Scripts/bookkeeping.add.controller.js"
-                , "~/Scripts/bookkeeping.edit.controller.js"
-                , "~/Scripts/bookkeeping.markassold.controller.js"
+                , "~/Scripts/bookkeeping.genericmodal.controller.js"
                 , "~/Scripts/bookkeeping.legosetdetail.directive.js"
 
                 ));
