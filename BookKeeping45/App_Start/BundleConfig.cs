@@ -13,13 +13,15 @@ namespace BookKeeping45
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
-                "~/Scripts/angular-ut-router.js"
+                "~/Scripts/angular-ut-router.js",
+                "~/Scripts/ui-bootstrap-tpls-0.14.3.min.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
                 "~/Scripts/bookkeeping.app.js",
                 "~/Scripts/bookkeeping.service.js",
-                "~/Scripts/bookkeeping.controller.js"
+                "~/Scripts/bookkeeping.controller.js",
+                "~/Scripts/bookkeeping.edit.controller.js"
 
                 ));
 

@@ -50,8 +50,9 @@ namespace BookKeeping45.Features.Inventory
 
 
         // DELETE: api/Inventory/5
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            var result = _mediator.Send(new DeleteLegoSetCommand(id));
         }
     }
 }

@@ -13,6 +13,7 @@
         var service = {
             getInventory: getInventory,
             markAsSold: markAsSold,
+            deleteSet: deleteSet,
             save: save,
             ready: ready
         };
@@ -49,6 +50,20 @@
                 });
 
             function addComplete(response, status, headers, config) {
+                return response.data;
+            }
+        }
+
+        function deleteSet(legoSet) {
+            return $http.delete('/api/inventory/' + legoSet.id)
+                .then(deleteComplete)
+                .catch(function (message) {
+                    //exception.catcher('XHR Failed for getInventory')(message);
+                    console.log('XHR failed for delete inventory: ' + message)
+                    $location.url('/');
+                });
+
+            function deleteComplete(response, status, headers, config) {
                 return response.data;
             }
         }

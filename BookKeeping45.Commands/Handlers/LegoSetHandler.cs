@@ -14,7 +14,8 @@ namespace BookKeeping45.Application.Handlers
     public class LegoSetHandler : 
         IRequestHandler<CreateNewLegoSetCommand, Unit>,
         IRequestHandler<SaveLegoSetCommand, Unit>,
-        IRequestHandler<MarkAsSoldCommand, Unit>
+        IRequestHandler<MarkAsSoldCommand, Unit>,
+        IRequestHandler<DeleteLegoSetCommand, Unit>
     {
         private readonly ILegoSetRepository _legoSetRepository;
 
@@ -53,6 +54,19 @@ namespace BookKeeping45.Application.Handlers
             else
             {
                 legoSet.Update(command.Number, command.Name, command.PurchasePrice);
+            }
+
+            return Unit.Value;
+        }
+
+
+        public Unit Handle(DeleteLegoSetCommand command)
+        {
+            var legoSet = _legoSetRepository.GetById(command.Id);
+
+            if (legoSet != null)
+            {
+                _legoSetRepository.Delete(legoSet);
             }
 
             return Unit.Value;

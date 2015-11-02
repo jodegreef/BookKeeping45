@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteLegoSetCommand.cs" />
     <Compile Include="SaveLegoSetCommand.cs" />
     <Compile Include="CreateNewLegoSetCommand.cs" />
     <Compile Include="Decorators\UnitOfWorkHandler.cs" />

@@ -25,18 +25,23 @@
                 <td><span>{{legoSet.sellPrice}}</span></td>
                 <td><span>{{legoSet.profit  }}</span></td>
                 <td>
-                    <button data-toggle="modal" data-target="#markAsSoldModal" ng-click="vm.setWorkingCopy(legoSet)">Mark as sold</button>
-                    <button data-toggle="modal" data-target="#upsertModal" ng-click="vm.setWorkingCopy(legoSet)">Edit</button>
+                    <!--
+                        without seperate controller:
+                        <button data-toggle="modal" data-target="#markAsSoldModal" ng-click="vm.setWorkingCopy(legoSet)">Mark as sold</button>-->
+                    <button ng-click="vm.showMarkAsSoldModal(legoSet)">Mark as sold</button>
+                    <button ng-click="vm.showEditModal(legoSet)">Edit</button>
+                    <button ng-click="vm.showDeleteModal(legoSet)">Delete</button>
                 </td>
             </tr>
         </table>
     </div>
 
+   <!--
+    without seperate controller:
 
     <div id="markAsSoldModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -54,39 +59,8 @@
         </div>
     </div>
 
+-->
 
-    <div id="upsertModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New/Edit item</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4"><span>Number: </span></div>
-                        <div class="col-md-8"><input class="form-control" ng-model="vm.workingCopy.number" /></div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4"><span>Name: </span></div>
-                        <div class="col-md-8"><input class="form-control" ng-model="vm.workingCopy.name" /></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4"><span>Purchase price: </span></div>
-                        <div class="col-md-8"><input class="form-control" ng-model="vm.workingCopy.purchasePrice" /></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.saveItem(vm.workingCopy)">Save</button>
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
 </div>
