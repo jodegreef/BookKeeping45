@@ -14,13 +14,18 @@ namespace BookKeeping45.Application.Commands
         public int Number { get; set; }
         public string Name { get; set; }
         public decimal PurchasePrice { get; set; }
+        public DateTime? PurchaseDate { get; set; }
+        public bool IsForSale { get; set; }
 
-        public CreateNewLegoSetCommand(int number, string name, decimal purchasePrice)
+        public CreateNewLegoSetCommand(int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
         {
             Number = number;
             Name = name;
             PurchasePrice = purchasePrice;
+            PurchaseDate = purchaseDate;
+            IsForSale = isForSale;
         }
+
     }
 
     public class CreateNewLegoSetCommandValidator : AbstractValidator<CreateNewLegoSetCommand>

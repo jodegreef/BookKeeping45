@@ -22,7 +22,7 @@ namespace BookKeeping45.Console
 
             var mediator = container.Resolve<IMediator>();
 
-            var result = mediator.Send(new CreateNewLegoSetCommand(1,"test",5));
+            var result = mediator.Send(new CreateNewLegoSetCommand(1,"test",5,null,true));
 
             var inventory = mediator.Send(new GetCompleteInventoryQuery());
             

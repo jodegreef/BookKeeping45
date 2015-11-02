@@ -165,11 +165,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Features\Web.config" />
-    <Content Include="ModalDelete.html" />
-    <Content Include="directiveLegoSetDetail.html" />
-    <Content Include="ModalAdd.html" />
-    <Content Include="ModalMarkAsSold.html" />
-    <Content Include="ModalEdit.html" />
+    <Content Include="app\ModalDelete.html" />
+    <Content Include="app\directiveLegoSetDetail.html" />
+    <Content Include="app\ModalAdd.html" />
+    <Content Include="app\ModalMarkAsSold.html" />
+    <Content Include="app\ModalEdit.html" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\BookKeeping.app.js" />

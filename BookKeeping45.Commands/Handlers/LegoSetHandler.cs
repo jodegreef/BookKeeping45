@@ -26,7 +26,7 @@ namespace BookKeeping45.Application.Handlers
 
         public Unit Handle(CreateNewLegoSetCommand command)
         {
-            var legoSet = new LegoSet(command.Number, command.Name, command.PurchasePrice);
+            var legoSet = new LegoSet(command.Number, command.Name, command.PurchasePrice, command.PurchaseDate, command.IsForSale);
 
             _legoSetRepository.Add(legoSet);
 
@@ -48,12 +48,12 @@ namespace BookKeeping45.Application.Handlers
 
             if (legoSet == null)
             {
-                legoSet = new LegoSet(command.Id, command.Number, command.Name, command.PurchasePrice);
+                legoSet = new LegoSet(command.Id, command.Number, command.Name, command.PurchasePrice, command.PurchaseDate, command.IsForSale);
                 _legoSetRepository.Add(legoSet);
             }
             else
             {
-                legoSet.Update(command.Number, command.Name, command.PurchasePrice);
+                legoSet.Update(command.Number, command.Name, command.PurchasePrice, command.PurchaseDate, command.IsForSale);
             }
 
             return Unit.Value;

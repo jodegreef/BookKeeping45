@@ -14,5 +14,7 @@ namespace BookKeeping45.QueryModel
         public bool IsSold { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal? SellPrice { get; set; }
+        public DateTime? PurchaseDate { get; set; }
+        public bool IsForSale { get; set; }
     }
 }

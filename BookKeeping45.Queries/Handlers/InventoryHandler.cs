@@ -31,7 +31,9 @@ namespace BookKeeping45.Queries.Handlers
                     Number = x.Number,
                     IsSold = x.IsSold,
                     SellPrice = x.SellPrice,
-                    PurchasePrice = x.PurchasePrice
+                    PurchasePrice = x.PurchasePrice,
+                    PurchaseDate = x.PurchaseDate,
+                    IsForSale = x.IsForSale
                 }).ToList();
 
             return result;

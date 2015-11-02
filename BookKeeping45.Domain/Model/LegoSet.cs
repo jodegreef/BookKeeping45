@@ -14,12 +14,14 @@ namespace BookKeeping45.Domain.Model
         public decimal PurchasePrice { get; private set; }
         public decimal? SellPrice { get; private set; }
         public bool IsSold { get; private set; }
+        public bool IsForSale { get; private set; }
+        public DateTime? PurchaseDate { get; private set; }
 
         protected LegoSet()
         {
         }
 
-        public LegoSet(Guid id, int number, string name, decimal purchasePrice)
+        public LegoSet(Guid id, int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
         {
             Id = id;
             Number = number;
@@ -28,7 +30,7 @@ namespace BookKeeping45.Domain.Model
         }
 
 
-        public LegoSet(int number, string name, decimal purchasePrice) : this(Guid.NewGuid(), number, name, purchasePrice)
+        public LegoSet(int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale) : this(Guid.NewGuid(), number, name, purchasePrice, purchaseDate, isForSale)
         {
         }
 
@@ -42,11 +44,13 @@ namespace BookKeeping45.Domain.Model
             SellPrice = SellPrice;
         }
 
-        public void Update(int number, string name, decimal purchasePrice)
+        public void Update(int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
         {
             Number = number;
             Name = name;
             PurchasePrice = purchasePrice;
+            PurchaseDate = purchaseDate;
+            IsForSale = isForSale;
         }
     }
 }

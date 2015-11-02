@@ -10,7 +10,7 @@
             link: function (scope, element, attrs) {
                 scope.title = attrs.title;
             },
-            templateUrl: 'directiveLegoSetDetail.html'
+            templateUrl: 'app/directiveLegoSetDetail.html'
             };
         });
 })();

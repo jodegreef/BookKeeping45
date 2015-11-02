@@ -30,6 +30,14 @@
                 });
 
             function getInventoryComplete(response, status, headers, config) {
+                response.data.forEach(function (item) {
+                    if (item.purchaseDate) {
+                        // convert from string to date object
+                        // otherwise angular will complain it's not a valid date when we try to edit the item.
+                        item.purchaseDate = new Date(item.purchaseDate);
+                    }
+                });
+
                 return response.data;
             }
         }

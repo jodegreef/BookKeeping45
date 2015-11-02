@@ -94,7 +94,7 @@
 
         var showModal = function (template, legoset, onSuccess) {
             var modalInstance = $uibModal.open({
-                templateUrl: template,
+                templateUrl: 'app/'+template,
                 controller: 'bookkeepingGenericModalController',
                 resolve: {
                     legoSet: function () {

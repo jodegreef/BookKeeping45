@@ -30,12 +30,12 @@ namespace BookKeeping45.Features.Inventory
 
         public void Post(QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new CreateNewLegoSetCommand(legoSet.Number, legoSet.Name, legoSet.PurchasePrice));
+            var result = _mediator.Send(new CreateNewLegoSetCommand(legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
         }
 
         public void Put(Guid id, [FromBody] QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new SaveLegoSetCommand(id, legoSet.Number, legoSet.Name, legoSet.PurchasePrice));
+            var result = _mediator.Send(new SaveLegoSetCommand(id, legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
         }
 
 
