@@ -28,17 +28,21 @@ namespace BookKeeping45.Features.Inventory
         }
 
 
-
-        public void Put(Guid id, [FromBody] QueryModel.LegoSet value)
+        public void Post(QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new SaveLegoSetCommand(id, value.Number, value.Name, value.PurchasePrice));
+            var result = _mediator.Send(new CreateNewLegoSetCommand(legoSet.Number, legoSet.Name, legoSet.PurchasePrice));
+        }
+
+        public void Put(Guid id, [FromBody] QueryModel.LegoSet legoSet)
+        {
+            var result = _mediator.Send(new SaveLegoSetCommand(id, legoSet.Number, legoSet.Name, legoSet.PurchasePrice));
         }
 
 
         [Route("api/inventory/sold/{id}")]
-        public void PutSold(Guid id, [FromBody] QueryModel.LegoSet value)
+        public void PutSold(Guid id, [FromBody] QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new MarkAsSoldCommand(id, value.SellPrice.GetValueOrDefault()));
+            var result = _mediator.Send(new MarkAsSoldCommand(id, legoSet.SellPrice.GetValueOrDefault()));
         }
 
 

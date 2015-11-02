@@ -15,6 +15,7 @@
             markAsSold: markAsSold,
             deleteSet: deleteSet,
             save: save,
+            insert:insert,
             ready: ready
         };
 
@@ -37,6 +38,21 @@
             //fyi: this is how you do a post instead
             // return $http.post('/api/inventory/sold', {id:id, sellPrice: sellPrice})
             return $http.put('/api/inventory/sold/' + id, { sellPrice: sellPrice });
+        }
+
+
+        function insert(legoSet) {
+            return $http.post('/api/inventory', legoSet)
+                .then(insertComplete)
+                .catch(function (message) {
+                    //exception.catcher('XHR Failed for getInventory')(message);
+                    console.log('XHR failed for post inventory: ' + message)
+                    $location.url('/');
+                });
+
+            function insertComplete(response, status, headers, config) {
+                return response.data;
+            }
         }
 
 

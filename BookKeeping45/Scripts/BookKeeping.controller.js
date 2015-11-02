@@ -38,6 +38,16 @@
             
         }
 
+        vm.insertItem = function (legoSet) {
+            bookkeepingService.insert(legoSet)
+                .then(function () {
+                    notify("Item saved");
+                    refreshData();
+                });
+
+        }
+
+
         vm.deleteSet = function (legoSet) {
             bookkeepingService.deleteSet(legoSet)
                 .then(function () {
@@ -61,7 +71,7 @@
 
 
         var notify = function (message) {
-            $.notify(message, { autoHideDelay: 1000, className: 'success' });
+            $.notify(message, { autoHideDelay: 5000, className: 'success' });
         }
 
         var notifyError = function (message) {
@@ -75,6 +85,26 @@
             );
         };
 
+        vm.showAddModal = function () {
+
+            var modalInstance = $uibModal.open({
+                templateUrl: 'ModalAdd.html',
+                controller: 'bookkeepingAddController',
+                resolve: {
+                    legoSet: function () {
+                        return {}
+                    }
+                }
+            });
+
+            modalInstance.result.then(
+                function (selectedItem) {
+                    vm.insertItem(selectedItem);
+                },
+                function () {
+                    console.log('Modal dismissed at: ' + new Date());
+                });
+        };
 
 
         vm.showEditModal = function (legoset) {
