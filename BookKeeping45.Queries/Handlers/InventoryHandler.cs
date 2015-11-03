@@ -11,7 +11,7 @@ using BookKeeping45.Queries.Infrastructure;
 namespace BookKeeping45.Queries.Handlers
 {
     public class InventoryHandler :
-        IRequestHandler<GetCompleteInventoryQuery, IReadOnlyList<LegoSet>>
+        IRequestHandler<GetCompleteInventoryQuery, Inventory>
     {
 
         private readonly IQueryContext _queryContext;
@@ -21,9 +21,9 @@ namespace BookKeeping45.Queries.Handlers
             _queryContext = queryContext;
         }
 
-        public IReadOnlyList<LegoSet> Handle(GetCompleteInventoryQuery command)
+        public Inventory Handle(GetCompleteInventoryQuery command)
         {
-            var result = _queryContext.Set<Domain.Model.LegoSet>()
+            var legoSets = _queryContext.Set<Domain.Model.LegoSet>()
                 .Select(x => new LegoSet
                 {
                     Id = x.Id,
@@ -36,7 +36,7 @@ namespace BookKeeping45.Queries.Handlers
                     IsForSale = x.IsForSale
                 }).ToList();
 
-            return result;
+            return new Inventory(legoSets);
 
 
         }

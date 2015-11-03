@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookKeeping45.Queries
 {
-    public class GetCompleteInventoryQuery : Request<IReadOnlyList<LegoSet>>
+    public class GetCompleteInventoryQuery : Request<Inventory>
     {
     }
 }

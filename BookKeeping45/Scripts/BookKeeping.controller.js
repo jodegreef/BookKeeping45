@@ -63,7 +63,7 @@
 
         var refreshData = function() {
             bookkeepingService.getInventory().then(function (data) {
-                vm.inventory = data;
+                vm.inventory = data.legoSets;
             }
             );
         };

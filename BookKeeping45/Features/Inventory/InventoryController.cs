@@ -21,7 +21,7 @@ namespace BookKeeping45.Features.Inventory
 
 
         // GET: api/Inventory
-        public IEnumerable<QueryModel.LegoSet> Get()
+        public QueryModel.Inventory Get()
         {
             var inventory = _mediator.Send(new GetCompleteInventoryQuery());
             return inventory;
