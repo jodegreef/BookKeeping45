@@ -10,7 +10,7 @@ namespace BookKeeping45.Infrastructure.EntityFramework.Models
     {
         static BookKeepingContext()
         {
-            Database.SetInitializer<BookKeepingContext>(null);
+            Database.SetInitializer<BookKeepingContext>(new CreateDatabaseIfNotExists<BookKeepingContext>());
         }
 
         public BookKeepingContext()
@@ -26,5 +26,6 @@ namespace BookKeeping45.Infrastructure.EntityFramework.Models
 
             modelBuilder.Configurations.Add(new LegoSetMap());
         }
+
     }
 }
