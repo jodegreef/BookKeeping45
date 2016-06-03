@@ -45,10 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeleteLegoSetCommand.cs" />
+    <Compile Include="Handlers\SaveLegoSetCommandHandler.cs" />
+    <Compile Include="Handlers\MarkAsSoldCommandHandler.cs" />
+    <Compile Include="Handlers\CreateNewLegoSetCommandHandler.cs" />
     <Compile Include="SaveLegoSetCommand.cs" />
     <Compile Include="CreateNewLegoSetCommand.cs" />
     <Compile Include="Decorators\UnitOfWorkHandler.cs" />
-    <Compile Include="Handlers\LegoSetHandler.cs" />
+    <Compile Include="Handlers\DeleteLegoSetCommandHandler.cs" />
     <Compile Include="Decorators\LogHandler.cs" />
     <Compile Include="MarkAsSoldCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

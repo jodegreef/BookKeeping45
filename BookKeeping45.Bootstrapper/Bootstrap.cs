@@ -14,6 +14,7 @@ using BookKeeping45.Infrastructure.EntityFramework;
 using BookKeeping45.Infrastructure.EntityFramework.Models;
 using BookKeeping45.Queries.Infrastructure;
 using BookKeeping45.Queries.Handlers;
+using BookKeeping45.Commands.Handlers;
 
 namespace BookKeeping45.Bootstrapper
 {
@@ -31,14 +32,14 @@ namespace BookKeeping45.Bootstrapper
             var builder = new ContainerBuilder();
 
             //Command handlers
-            var commandsAssembly = typeof(LegoSetHandler).Assembly;
+            var commandsAssembly = typeof(SaveLegoSetCommandHandler).Assembly;
             builder.RegisterAssemblyTypes(commandsAssembly)
                 .As(type => type.GetInterfaces()
                 .Where(interfaceType => !interfaceType.Namespace.Contains("Decorators") && interfaceType.IsClosedTypeOf(typeof(IRequestHandler<,>)))
                 .Select(interfaceType => new KeyedService("requestHandler", interfaceType))); // --> we need a keyed service as the decorated service will become the key-less one
 
             //query handlers
-            builder.RegisterAssemblyTypes(typeof(InventoryHandler).Assembly)
+            builder.RegisterAssemblyTypes(typeof(GetCompleteInventoryQueryHandler).Assembly)
                 .Where(interfaceType => !interfaceType.Namespace.Contains("Decorators") && interfaceType.IsClosedTypeOf(typeof(IRequestHandler<,>)))
                 .AsImplementedInterfaces();
                 

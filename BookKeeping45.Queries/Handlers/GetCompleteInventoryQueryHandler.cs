@@ -10,13 +10,13 @@ using BookKeeping45.Queries.Infrastructure;
 
 namespace BookKeeping45.Queries.Handlers
 {
-    public class InventoryHandler :
+    public class GetCompleteInventoryQueryHandler :
         IRequestHandler<GetCompleteInventoryQuery, Inventory>
     {
 
         private readonly IQueryContext _queryContext;
 
-        public InventoryHandler(IQueryContext queryContext)
+        public GetCompleteInventoryQueryHandler(IQueryContext queryContext)
         {
             _queryContext = queryContext;
         }

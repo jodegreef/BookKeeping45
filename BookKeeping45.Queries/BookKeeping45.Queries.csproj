@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetCompleteInventoryQuery.cs" />
-    <Compile Include="Handlers\InventoryHandler.cs" />
+    <Compile Include="Handlers\GetCompleteInventoryQueryHandler.cs" />
     <Compile Include="Infrastructure\ConnectionProvider.cs" />
     <Compile Include="Infrastructure\IConnectionProvider.cs" />
     <Compile Include="Infrastructure\IQueryContext.cs" />
