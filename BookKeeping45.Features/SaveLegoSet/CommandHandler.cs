@@ -1,5 +1,4 @@
-﻿using BookKeeping45.Application.Commands;
-using BookKeeping45.Domain.Model;
+﻿using BookKeeping45.Domain.Model;
 using BookKeeping45.Domain.Repositories;
 using BookKeeping45.Infrastructure.Mediator;
 using System;
@@ -8,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookKeeping45.Commands.Handlers
+namespace BookKeeping45.Features.SaveLegoSet
 {
-    public class SaveLegoSetCommandHandler : IRequestHandler<SaveLegoSetCommand, Unit>
+    public class CommandHandler : IRequestHandler<Command, Unit>
     {
         private readonly ILegoSetRepository _legoSetRepository;
 
-        public SaveLegoSetCommandHandler(ILegoSetRepository legoSetRepository)
+        public CommandHandler(ILegoSetRepository legoSetRepository)
         {
             _legoSetRepository = legoSetRepository;
         }
 
-        public Unit Handle(SaveLegoSetCommand command)
+        public Unit Handle(Command command)
         {
             var legoSet = _legoSetRepository.GetById(command.Id);
 
@@ -37,3 +36,4 @@ namespace BookKeeping45.Commands.Handlers
         }
     }
 }
+

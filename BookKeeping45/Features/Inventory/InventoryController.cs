@@ -1,5 +1,4 @@
-﻿using BookKeeping45.Application.Commands;
-using BookKeeping45.Infrastructure.Mediator;
+﻿using BookKeeping45.Infrastructure.Mediator;
 using BookKeeping45.Queries;
 using System;
 using System.Collections.Generic;
@@ -30,19 +29,19 @@ namespace BookKeeping45.Features.Inventory
 
         public void Post(QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new CreateNewLegoSetCommand(legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
+            var result = _mediator.Send(new SaveLegoSet.Command(legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
         }
 
         public void Put(Guid id, [FromBody] QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new SaveLegoSetCommand(id, legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
+            var result = _mediator.Send(new SaveLegoSet.Command(id, legoSet.Number, legoSet.Name, legoSet.PurchasePrice, legoSet.PurchaseDate, legoSet.IsForSale));
         }
 
 
         [Route("api/inventory/sold/{id}")]
         public void PutSold(Guid id, [FromBody] QueryModel.LegoSet legoSet)
         {
-            var result = _mediator.Send(new MarkAsSoldCommand(id, legoSet.SellPrice.GetValueOrDefault()));
+            var result = _mediator.Send(new MarkAsSold.Command(id, legoSet.SellPrice.GetValueOrDefault()));
         }
 
 
@@ -56,7 +55,7 @@ namespace BookKeeping45.Features.Inventory
         // DELETE: api/Inventory/5
         public void Delete(Guid id)
         {
-            var result = _mediator.Send(new DeleteLegoSetCommand(id));
+            var result = _mediator.Send(new DeleteLegoSet.Command(id));
         }
     }
 }

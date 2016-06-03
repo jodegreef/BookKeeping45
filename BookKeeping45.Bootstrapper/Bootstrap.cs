@@ -8,13 +8,11 @@ using Autofac;
 using Autofac.Core;
 
 using BookKeeping45.Infrastructure.Mediator;
-using BookKeeping45.Application.Handlers;
-using BookKeeping45.Commands.Decorators;
 using BookKeeping45.Infrastructure.EntityFramework;
 using BookKeeping45.Infrastructure.EntityFramework.Models;
 using BookKeeping45.Queries.Infrastructure;
 using BookKeeping45.Queries.Handlers;
-using BookKeeping45.Commands.Handlers;
+using BookKeeping45.Features;
 
 namespace BookKeeping45.Bootstrapper
 {
@@ -32,8 +30,8 @@ namespace BookKeeping45.Bootstrapper
             var builder = new ContainerBuilder();
 
             //Command handlers
-            var commandsAssembly = typeof(SaveLegoSetCommandHandler).Assembly;
-            builder.RegisterAssemblyTypes(commandsAssembly)
+            var featuresAssembly = typeof(Features.Features).Assembly;
+            builder.RegisterAssemblyTypes(featuresAssembly)
                 .As(type => type.GetInterfaces()
                 .Where(interfaceType => !interfaceType.Namespace.Contains("Decorators") && interfaceType.IsClosedTypeOf(typeof(IRequestHandler<,>)))
                 .Select(interfaceType => new KeyedService("requestHandler", interfaceType))); // --> we need a keyed service as the decorated service will become the key-less one

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using BookKeeping45.Infrastructure.Mediator;
 using FluentValidation;
 
-namespace BookKeeping45.Application.Commands
+namespace BookKeeping45.Features.SaveLegoSet
 {
-    public class SaveLegoSetCommand : Request<Unit>
+    public class Command : Request<Unit>
     {
         public Guid Id { get; set; }
         public int Number { get; set; }
@@ -18,7 +18,7 @@ namespace BookKeeping45.Application.Commands
         public DateTime? PurchaseDate { get; set; }
         public bool IsForSale { get; set; }
 
-        public SaveLegoSetCommand(Guid id, int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
+        public Command(Guid id, int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
         {
             Id = id;
             Number = number;
@@ -26,16 +26,11 @@ namespace BookKeeping45.Application.Commands
             PurchasePrice = purchasePrice;
             PurchaseDate = purchaseDate;
             IsForSale = isForSale;
-
         }
-    }
 
-    public class SaveLegoSetCommandValidator : AbstractValidator<SaveLegoSetCommand>
-    {
-        public SaveLegoSetCommandValidator()
+        public Command(int number, string name, decimal purchasePrice, DateTime? purchaseDate, bool isForSale)
+            : this(Guid.NewGuid(), number, name, purchasePrice, purchaseDate, isForSale)
         {
-            RuleFor(x => x.Number).NotEmpty();
-            RuleFor(x => x.Name).Length(1, 255);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Autofac;
 
-using BookKeeping45.Application.Commands;
+using BookKeeping45.Features;
 using BookKeeping45.Bootstrapper;
 using BookKeeping45.Infrastructure.Mediator;
 using BookKeeping45.Queries;
@@ -22,7 +22,7 @@ namespace BookKeeping45.Console
 
             var mediator = container.Resolve<IMediator>();
 
-            var result = mediator.Send(new CreateNewLegoSetCommand(1,"test",5,null,true));
+            var result = mediator.Send(new Features.SaveLegoSet.Command(1,"test",5,null,true));
 
             var inventory = mediator.Send(new GetCompleteInventoryQuery());
             

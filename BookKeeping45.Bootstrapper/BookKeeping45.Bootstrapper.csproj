@@ -61,13 +61,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BookKeeping45.Commands\BookKeeping45.Commands.csproj">
-      <Project>{c4a99cc6-72fd-4d85-bd7a-fa4376c40bdb}</Project>
-      <Name>BookKeeping45.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BookKeeping45.Domain\BookKeeping45.Domain.csproj">
       <Project>{1739470a-1bb9-427d-9805-4d93d555f9a8}</Project>
       <Name>BookKeeping45.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookKeeping45.Features\BookKeeping45.Features.csproj">
+      <Project>{eae97c6f-55ff-4b56-a83c-7ec37c0ebd99}</Project>
+      <Name>BookKeeping45.Features</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookKeeping45.Infrastructure.EntityFramework\BookKeeping45.Infrastructure.EntityFramework.csproj">
       <Project>{84ebaee1-c5b5-44b6-81e9-a9f696efeb72}</Project>
