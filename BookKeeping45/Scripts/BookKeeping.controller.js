@@ -25,10 +25,14 @@
 
         var insertItem = function (legoSet) {
             bookkeepingService.insert(legoSet)
-                .then(function () {
-                    notify("Item saved");
+                .then(function (datat) {
+                    notify("Item inserted");
                     refreshData();
-                });
+                })
+                            .catch(function (message) {
+                                notifyError("Something went wrong: " + message.data.exceptionMessage);
+                            });
+
 
         }
 

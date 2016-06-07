@@ -11,7 +11,7 @@ namespace BookKeeping45.Features.SaveLegoSet
     {
         public CommandValidator()
         {
-            RuleFor(x => x.Number).NotEmpty();
+           // RuleFor(x => x.Number).NotEmpty();
             RuleFor(x => x.Name).Length(1, 255);
         }
     }

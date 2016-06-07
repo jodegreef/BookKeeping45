@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Decorators\LogHandler.cs" />
     <Compile Include="Decorators\UnitOfWorkHandler.cs" />
+    <Compile Include="Decorators\ValidationHandler.cs" />
     <Compile Include="DeleteLegoSet\Command.cs" />
     <Compile Include="DeleteLegoSet\CommandHandler.cs" />
     <Compile Include="Features.cs" />

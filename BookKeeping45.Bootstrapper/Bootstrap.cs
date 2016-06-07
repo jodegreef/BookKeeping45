@@ -13,6 +13,7 @@ using BookKeeping45.Infrastructure.EntityFramework.Models;
 using BookKeeping45.Queries.Infrastructure;
 using BookKeeping45.Queries.Handlers;
 using BookKeeping45.Features;
+using BookKeeping45.Features.Decorators;
 
 namespace BookKeeping45.Bootstrapper
 {
@@ -56,9 +57,14 @@ namespace BookKeeping45.Bootstrapper
             builder.RegisterType<LegoSetRepository>().AsImplementedInterfaces();
             //builder.RegisterType<InMemLegoSetRepository>().AsImplementedInterfaces();
 
+            builder.RegisterAssemblyTypes(featuresAssembly)
+               .Where(t => t.Name.EndsWith("Validator"))
+               .AsImplementedInterfaces();
+
 
             //register the decorator - works
-            builder.RegisterGenericDecorator(typeof(LogHandler<,>), typeof(IRequestHandler<,>), "requestHandler", "decoratedWithLog");
+            builder.RegisterGenericDecorator(typeof(ValidationHandler<,>), typeof(IRequestHandler<,>), "requestHandler", "decoratedWithValidation");
+            builder.RegisterGenericDecorator(typeof(LogHandler<,>), typeof(IRequestHandler<,>), "decoratedWithValidation", "decoratedWithLog");
             builder.RegisterGenericDecorator(typeof(UnitOfWorkHandler<,>), typeof(IRequestHandler<,>), "decoratedWithLog"); //last decorator must be keyless
 
             if (additionalRegistrations != null)
