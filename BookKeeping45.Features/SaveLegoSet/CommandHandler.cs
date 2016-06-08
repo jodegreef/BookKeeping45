@@ -1,6 +1,6 @@
 ﻿using BookKeeping45.Domain.Model;
 using BookKeeping45.Domain.Repositories;
-using BookKeeping45.Infrastructure.Mediator;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;

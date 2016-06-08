@@ -1,5 +1,5 @@
-﻿using BookKeeping45.Infrastructure.Mediator;
-using BookKeeping45.Queries;
+﻿using BookKeeping45.Queries;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;

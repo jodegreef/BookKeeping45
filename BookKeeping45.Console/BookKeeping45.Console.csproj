@@ -45,6 +45,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MediatR, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.2.0.2\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -81,10 +85,6 @@
     <ProjectReference Include="..\BookKeeping45.Infrastructure.EntityFramework\BookKeeping45.Infrastructure.EntityFramework.csproj">
       <Project>{84ebaee1-c5b5-44b6-81e9-a9f696efeb72}</Project>
       <Name>BookKeeping45.Infrastructure.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BookKeeping45.Infrastructure.Mediator\BookKeeping45.Infrastructure.Mediator.csproj">
-      <Project>{1f3ecdad-0f06-40d2-881f-c029fa0781b5}</Project>
-      <Name>BookKeeping45.Infrastructure.Mediator</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookKeeping45.Queries\BookKeeping45.Queries.csproj">
       <Project>{3aa6a0b8-3ce7-4b9d-b7db-c0e1be822053}</Project>

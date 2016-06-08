@@ -34,6 +34,10 @@
       <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MediatR, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.2.0.2\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,10 +72,6 @@
     <ProjectReference Include="..\BookKeeping45.Infrastructure.EntityFramework\BookKeeping45.Infrastructure.EntityFramework.csproj">
       <Project>{84ebaee1-c5b5-44b6-81e9-a9f696efeb72}</Project>
       <Name>BookKeeping45.Infrastructure.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BookKeeping45.Infrastructure.Mediator\BookKeeping45.Infrastructure.Mediator.csproj">
-      <Project>{1f3ecdad-0f06-40d2-881f-c029fa0781b5}</Project>
-      <Name>BookKeeping45.Infrastructure.Mediator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

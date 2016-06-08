@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BookKeeping45.Infrastructure.Mediator;
 using FluentValidation;
+using MediatR;
 
 namespace BookKeeping45.Features.SaveLegoSet
 {
-    public class Command : Request<Unit>
+    public class Command : IRequest<Unit>
     {
         public Guid Id { get; set; }
         public int Number { get; set; }

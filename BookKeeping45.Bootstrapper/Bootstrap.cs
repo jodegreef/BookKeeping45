@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Core;
 
-using BookKeeping45.Infrastructure.Mediator;
+using MediatR;
+
 using BookKeeping45.Infrastructure.EntityFramework;
 using BookKeeping45.Infrastructure.EntityFramework.Models;
 using BookKeeping45.Queries.Infrastructure;
 using BookKeeping45.Queries.Handlers;
 using BookKeeping45.Features;
 using BookKeeping45.Features.Decorators;
+using Autofac.Features.Variance;
 
 namespace BookKeeping45.Bootstrapper
 {
@@ -41,11 +43,23 @@ namespace BookKeeping45.Bootstrapper
             builder.RegisterAssemblyTypes(typeof(GetCompleteInventoryQueryHandler).Assembly)
                 .Where(interfaceType => !interfaceType.Namespace.Contains("Decorators") && interfaceType.IsClosedTypeOf(typeof(IRequestHandler<,>)))
                 .AsImplementedInterfaces();
-                
 
 
 
-            builder.Register(c => new Mediator(c.Resolve<IComponentContext>())).AsImplementedInterfaces();
+
+            //builder.Register(c => new Mediator(c.Resolve<IComponentContext>())).AsImplementedInterfaces();
+            builder.RegisterSource(new ContravariantRegistrationSource());
+            builder.RegisterAssemblyTypes(typeof(IMediator).Assembly).AsImplementedInterfaces();
+            builder.Register<SingleInstanceFactory>(ctx =>
+            {
+                var c = ctx.Resolve<IComponentContext>();
+                return t => c.Resolve(t);
+            });
+            builder.Register<MultiInstanceFactory>(ctx =>
+            {
+                var c = ctx.Resolve<IComponentContext>();
+                return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
+            });
 
             builder.RegisterType<UnitOfWork>().AsImplementedInterfaces();
             builder.Register<IQueryContext>(c => new QueryContext(new BookKeepingContext()));

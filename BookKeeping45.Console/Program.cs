@@ -8,8 +8,8 @@ using Autofac;
 
 using BookKeeping45.Features;
 using BookKeeping45.Bootstrapper;
-using BookKeeping45.Infrastructure.Mediator;
 using BookKeeping45.Queries;
+using MediatR;
 
 namespace BookKeeping45.Console
 {

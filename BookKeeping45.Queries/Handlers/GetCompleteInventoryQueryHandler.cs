@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BookKeeping45.Infrastructure.Mediator;
 using BookKeeping45.QueryModel;
 using BookKeeping45.Queries.Infrastructure;
+using MediatR;
 
 namespace BookKeeping45.Queries.Handlers
 {

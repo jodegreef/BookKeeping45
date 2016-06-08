@@ -1,5 +1,5 @@
-﻿using BookKeeping45.Infrastructure.Mediator;
-using BookKeeping45.QueryModel;
+﻿using BookKeeping45.QueryModel;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookKeeping45.Queries
 {
-    public class GetCompleteInventoryQuery : Request<Inventory>
+    public class GetCompleteInventoryQuery : IRequest<Inventory>
     {
     }
 }
